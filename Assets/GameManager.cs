@@ -99,6 +99,13 @@ public class GameManager : MonoBehaviour
                 return playerRanking.IndexOf(x) + 1;
             }
         }
+        
+        // Edge case, theres only one player
+        if (playerRanking.Count == 1)
+        {
+            return 1;
+        }
+        
         return -1;
     }
 }
