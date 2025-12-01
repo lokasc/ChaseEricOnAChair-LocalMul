@@ -9,10 +9,21 @@ public class CharacterManager : MonoBehaviour
 
     public string player1Character;
     public string player2Character;
+
+    public float legPower1;
+    public float cooldown1;
+    public float steerAngle1;
+
+    public float legPower2;
+    public float cooldown2;
+    public float steerAngle2;
+
     
     List<Character> availableCharacters = new List<Character>();
 
+    //actually these two might not be needed
     bool isAnimating; //if camera is moving
+    float transitionTime = 0.5f;//how fast we want the camera movements to be
 
 
     void Start()
@@ -66,7 +77,6 @@ public class CharacterManager : MonoBehaviour
         cam.rotation = target.rotation;
         mainCamera.fieldOfView = targetFOV;
 
-        if (!activating) ActivatedBoolean = false;
         isAnimating = false;
     }
 

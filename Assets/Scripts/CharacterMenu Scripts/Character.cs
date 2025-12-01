@@ -10,6 +10,10 @@ public class Character : MonoBehaviour
     public GameObject model;//not sure if we will need linked here
     public GameObject nameSprite;//^^
 
+    public float legPower = 15f;
+    public float cooldown = 0.3f;
+    public float steerAngle = 45f;
+
     void Start()
     {
         //    :) hi lucas
