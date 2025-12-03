@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -11,13 +12,6 @@ public class CameraFollow : MonoBehaviour
     [Header("References")]
     public Camera myCamera;
     
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -26,4 +20,5 @@ public class CameraFollow : MonoBehaviour
         
         myCamera.transform.rotation = Quaternion.Lerp(myCamera.transform.rotation, target.transform.rotation, rotationLerpSpeed * Time.deltaTime);
     }
+    
 }

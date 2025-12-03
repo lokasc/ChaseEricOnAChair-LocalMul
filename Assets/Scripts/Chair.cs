@@ -9,16 +9,16 @@ public class Chair : MonoBehaviour
     public float legCoolDown = 0.5f;
     public float maxSteerAngle = 45f;
     
-    
     [Header("References")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Controls playerInput;
     [SerializeField] private GameObject chair; // This is where all the visuals are.
+    [SerializeField] public ChairUI playerUI;
     
     private float currentCoolDown;
     private bool canMash;
+    public bool canDrive = false;
     
-
     private void Start()
     {
         rb.gameObject.transform.name += " " + transform.name;
@@ -28,7 +28,14 @@ public class Chair : MonoBehaviour
 
     private void Update()
     {
-        // print(playerInput.GetSteerValue());
+        if (!canDrive)
+        {
+            // rb.linearVelocity = Vector3.zero;
+            rb.transform.localPosition = Vector3.zero;
+            print("hello!");
+            return;
+        }
+        
         // Cooldown Timer
         if (!canMash)
         {
@@ -49,7 +56,6 @@ public class Chair : MonoBehaviour
         // Steering
         //transform.Rotate(new Vector3(0, playerInput.GetSteerValue() * steerPower, 0) * Time.deltaTime);
     }
-    
 
 
     private void CooldownLogic()
@@ -60,5 +66,10 @@ public class Chair : MonoBehaviour
             currentCoolDown = legCoolDown;
             canMash = true;
         }
+    }
+
+    public void OnCountDownComplete()
+    {
+        canDrive = true;
     }
 }
