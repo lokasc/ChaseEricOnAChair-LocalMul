@@ -27,12 +27,21 @@ public class CharacterManager : MonoBehaviour
     //actually these two might not be needed
     bool isAnimating; //if camera is moving
     float transitionTime = 0.5f;//how fast we want the camera movements to be
-    int currentIndex = -1;//-1 is overview
+    public int currentIndex = -1;//-1 is overview
 
 
     //inputs
 
      public CharacterSelectControls input; 
+
+
+    //overview camera movement
+    float overviewOscillateSpeed = 0.5f;
+    float overviewMinZ = 52f;
+    float overviewMaxZ = 68f;
+
+    float overviewOscillateTime = 0f;
+
 
     /*void Awake()
     {
@@ -54,6 +63,10 @@ public class CharacterManager : MonoBehaviour
         if (overviewCamera == null) return;
         StartCoroutine(MoveCamera(mainCamera.transform, overviewCamera.transform, overviewCamera.fieldOfView));
         currentIndex = -1;
+
+
+        
+        overviewOscillateTime = 0f;
     }
 
 
@@ -92,7 +105,7 @@ public class CharacterManager : MonoBehaviour
                 Character selected = availableCharacters[currentIndex];
 
                 CharacterInfo info = CharacterInfo.Instance;
-                
+
                 info.player1Character = selected.name;
                 info.legPower1 = selected.legPower;
                 info.cooldown1 = selected.cooldown;
@@ -110,6 +123,13 @@ public class CharacterManager : MonoBehaviour
                 MoveToOverview();
             }
         }
+
+        //overview camera movement
+        if (currentIndex == -1)
+        {
+            OscillateOverviewCamera();
+        }
+
     }
 
     void MoveToCharacter(int index)
@@ -152,8 +172,23 @@ public class CharacterManager : MonoBehaviour
         isAnimating = false;
     }
 
+//for moving camera back and forth during title screen
+    void OscillateOverviewCamera()
+    {
+        if (overviewCamera == null) return;
 
+        overviewOscillateTime += Time.deltaTime * overviewOscillateSpeed;
 
+        float z = Mathf.Lerp(
+            overviewMinZ,
+            overviewMaxZ,
+            (Mathf.Sin(overviewOscillateTime) + 1f) * 0.5f
+        );
+
+        Vector3 pos = mainCamera.transform.position;
+        pos.z = z;
+        mainCamera.transform.position = pos;
+    }
 
 
 }
