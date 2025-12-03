@@ -21,7 +21,7 @@ public class CharacterManager : MonoBehaviour
     public float cooldown2;
     public float steerAngle2;
 
-    
+    public string[] characterNames;    
     List<Character> availableCharacters = new List<Character>();
 
     //actually these two might not be needed
@@ -50,9 +50,15 @@ public class CharacterManager : MonoBehaviour
 
     void Start()
     {
-        foreach (var c in FindObjectsOfType<Character>())
+        for (int i = 0; i < characterNames.Length; i++)
         {
-            availableCharacters.Add(c);
+            GameObject b = GameObject.Find(characterNames[i]);
+            if (b != null)
+            {
+                Character bc = b.GetComponent<Character>();
+                if (bc != null)
+                    availableCharacters.Add(bc);
+            }
         }
 
         MoveToOverview();
@@ -65,7 +71,7 @@ public class CharacterManager : MonoBehaviour
         currentIndex = -1;
 
 
-        
+
         overviewOscillateTime = 0f;
     }
 
