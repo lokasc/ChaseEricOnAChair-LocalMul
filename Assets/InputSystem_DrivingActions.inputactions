@@ -620,6 +620,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "02f2c2f5-a0ce-47a3-add5-7102b6381d43",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;XR",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "6e5dcc06-67ac-483a-a415-fd47a767a16b",
                     "path": "2DVector",

@@ -27,10 +27,11 @@ public class CharacterSelector : MonoBehaviour
 
     public void ResetChoice()
     {
-        name = "";
+        characterName = "";
         legLength = 0;
         legCooldown = 0;
         handling = 0;
+        model = null;
         isSelected = false;
     }
 }
