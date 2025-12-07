@@ -64,8 +64,6 @@ public class CharacterManager : MonoBehaviour
         control.playerInput = newPlayerInput;
         
         CharacterSelector infoHolder = newPlayer.GetComponent<CharacterSelector>();
-        infoHolder.playerId = PlayerInputManager.instance.playerCount;
-        print(infoHolder.playerId);
         infoHolder.myManager = newPlayerInput.GetComponent<PlayerManager>();
         OnNewPlayerJoin.Invoke();
     }
@@ -117,6 +115,20 @@ public class CharacterManager : MonoBehaviour
         // Selecting characters
         foreach (CharacterSelectControls input in characterSelectors)
         {
+            // what happens when u try to undo.
+            if (input.CancelPressed())
+            {
+                CharacterSelector info = input.GetComponent<CharacterSelector>();
+
+                // if we have a character selected, proceed.
+                if (info.isSelected)
+                {
+                    info.ResetChoice();
+                    info.CopyToManager();
+                    print("Player " + (characterSelectors.IndexOf(input) + 1).ToString() + " cancelled " + info.characterName);
+                    return;
+                }
+            }
             if (input.SelectPressed() && !IsPlayersReady())//select button
             {
                 // This goes from Main Menu to Character Select. (overview to first character)
@@ -130,7 +142,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     Character selected = availableCharacters[currentIndex];
                     CharacterSelector infoHolder = input.GetComponent<CharacterSelector>();
-                    
+
                     infoHolder.characterName = selected.name;
                     infoHolder.legLength = selected.legPower;
                     infoHolder.legCooldown = selected.cooldown;

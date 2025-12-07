@@ -25,27 +25,32 @@ public class CMSpinningFigure : MonoBehaviour
 
         transform.Rotate(0f, currentRotationSpeed * Time.deltaTime, 0f, Space.Self);
 
-        float bob = Mathf.Sin(Time.time * bobFrequency) * bobAmplitude;
-        Vector3 pos = startPosition;
-        pos.y += bob;
-        transform.position = pos;
+        if (bobAmplitude != 0f)
+        {
+            float bob = Mathf.Sin(Time.time * bobFrequency) * bobAmplitude;
+            Vector3 pos = startPosition;
+            pos.y += bob;
+            transform.position = pos;
+        }
 
         foreach (var input in manager.characterSelectors)
         {
             if (input.SelectPressed() && speedRoutine == null)
             {
-                speedRoutine = StartCoroutine(SpinBoost());
+                if (bobFrequency != -1f) // only apply spinboost if bobFrequency != -1
+                {
+                    speedRoutine = StartCoroutine(SpinBoost());
+                }
             }
         }
     }
-//spin when select!
+
     IEnumerator SpinBoost()
     {
         float duration = 0.5f;
         float elapsed = 0f;
         float startSpeed = rotationSpeed;
         float targetSpeed = rotationSpeed * 100f;
-
 
         while (elapsed < duration)
         {
@@ -54,7 +59,6 @@ public class CMSpinningFigure : MonoBehaviour
             yield return null;
         }
         currentRotationSpeed = targetSpeed;
-
 
         elapsed = 0f;
         float decelDuration = duration * 2f;
