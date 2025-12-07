@@ -7,7 +7,7 @@ public class EricLogic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.Instance.boss = this.gameObject;
+        KartManager.Instance.boss = this.gameObject;
     }
 
 
@@ -16,7 +16,7 @@ public class EricLogic : MonoBehaviour
         Debug.Log(other.gameObject.name);
         if (other.gameObject.tag == "Player")
         {
-            GameManager.Instance.AddLap(other.transform.parent.GetComponent<Chair>());
+            KartManager.Instance.AddLap(other.transform.parent.GetComponent<Chair>());
             
             
         }

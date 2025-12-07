@@ -3,10 +3,12 @@ using UnityEngine.InputSystem;
 
 public class CharacterSelectControls : MonoBehaviour
 {
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] public PlayerInput playerInput;
 
-    public Vector2 GetNavigate() =>
-        playerInput.actions["Navigate"].ReadValue<Vector2>();
+    public Vector2 GetNavigate()
+    {
+        return playerInput.actions["Navigate"].ReadValue<Vector2>();
+    }
 
     public bool SelectPressed() =>
         playerInput.actions["Select"].triggered;
