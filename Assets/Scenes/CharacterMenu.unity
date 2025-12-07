@@ -17176,12 +17176,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca0f4fb7651211b429e362898bcf319f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 658716b2e48ac8f4291d347ce17be0ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -22865,12 +22865,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 827d1d8660e5d74478004f2415c95a68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1a814c7c32fe8e40ae16c6e55dffe60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -23093,12 +23093,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a12e1bc1f0868647b6c9165eddc5c6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a22420f27c9ad04b9ccc1834531171c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -23429,12 +23429,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca0845104ea656641bafbd330a6529c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 903b52fb2894f5a4ebd4d5d343c9cfde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -23450,7 +23450,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9995853, z: -0, w: 0.028798401}
   m_LocalPosition: {x: 2.140768, y: 0.34334284, z: -19.85048}
-  m_LocalScale: {x: 0.06450412, y: 0.0181533, z: 0.06450412}
+  m_LocalScale: {x: 0.049680427, y: 0.01398149, z: 0.049680427}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1096558539}
@@ -23532,12 +23532,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d270c60441eb2b249a8f3d2fee693309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a4094b28589ddc40834a7fe41e7ed5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -24617,12 +24617,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ebe44f7a96830b342b5dc82c6ae21a9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a2292d7c1d83ce4f98e7b1a59449063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -25146,12 +25146,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1120ac6d575859440b77cb4e50c8711f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b035fc5cde08e44e858e1fccdbcc474, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 28.140001, y: 18.040928}
+  m_Size: {x: 35.121952, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -25457,7 +25457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ecab649b7a33c4f849645236a68537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CMSpinningFigure
-  rotationSpeed: 70
+  rotationSpeed: -70
   bobAmplitude: 0
   bobFrequency: -1
 --- !u!1 &1895078939
