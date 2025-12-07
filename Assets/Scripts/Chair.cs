@@ -11,20 +11,25 @@ public class Chair : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Controls playerInput;
-    [SerializeField] private GameObject chair; // This is where all the visuals are.
+    [SerializeField] public Controls playerInput;
+    [SerializeField] private GameObject chair; // This is where everything visual related is. 
     [SerializeField] public ChairUI playerUI;
+    
+    [SerializeField] public GameObject modelContainer; // the parent to the chair/zimmerkarter
     
     private float currentCoolDown;
     private bool canMash;
     public bool canDrive = false;
     
-    private void Start()
+
+    // Called by the KartManager
+    public void InitializeChair() 
     {
         rb.gameObject.transform.name += " " + transform.name;
-        currentCoolDown = legCoolDown;
+        currentCoolDown = legCoolDown; // this line should be called right before game starts but i guess i dont want to.
         canMash = true;
     }
+    
 
     private void Update()
     {
@@ -32,7 +37,6 @@ public class Chair : MonoBehaviour
         {
             // rb.linearVelocity = Vector3.zero;
             rb.transform.localPosition = Vector3.zero;
-            print("hello!");
             return;
         }
         

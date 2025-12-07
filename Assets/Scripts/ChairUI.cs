@@ -24,8 +24,8 @@ public class ChairUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        positionText.text = GameManager.Instance.GetCurrentPosition(myChair).ToString();
-        lapText.text = "Lap " + GameManager.Instance.GetCurrentLaps(myChair).ToString() + "/3";
+        positionText.text = KartManager.Instance.GetCurrentPosition(myChair).ToString();
+        lapText.text = "Lap " + KartManager.Instance.GetCurrentLaps(myChair).ToString() + "/3";
     }
 
     public void StartCountDown()

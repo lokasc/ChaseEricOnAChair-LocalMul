@@ -849,8 +849,6 @@ GameObject:
   - component: {fileID: 208024329}
   - component: {fileID: 208024328}
   - component: {fileID: 208024332}
-  - component: {fileID: 208024334}
-  - component: {fileID: 208024333}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -962,16 +960,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4a8723b1580744c850d2ef67b89fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterManager
+  OnNewPlayerJoin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayer1Selected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayer2Selected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBothPlayersReady:
+    m_PersistentCalls:
+      m_Calls: []
+  characterSelectors: []
+  characterSelectPrefab: {fileID: 8289125988472124780, guid: c0a0fae3c07937546b33f2f1dac1fe86, type: 3}
   mainCamera: {fileID: 2094338513}
   overviewCamera: {fileID: 90131537}
-  player1Character: 
-  player2Character: 
-  legPower1: 0
-  cooldown1: 0
-  steerAngle1: 0
-  legPower2: 0
-  cooldown2: 0
-  steerAngle2: 0
   characterNames:
   - Mars
   - Amber
@@ -981,50 +985,6 @@ MonoBehaviour:
   - Prince
   - Claire
   currentIndex: -1
-  input: {fileID: 208024334}
---- !u!114 &208024333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208024326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 109850e5a63ad3441992005da85fc553, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: CharacterSelect
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &208024334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208024326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab116b72326bb849a8c5292c8ef6216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectControls
-  playerInput: {fileID: 208024333}
 --- !u!1 &211234019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 727023f194a39c94a94af1c49f700af9, type: 3}
@@ -11404,8 +11364,8 @@ MonoBehaviour:
   name: Destin
   model: {fileID: 0}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &366742723
 BoxCollider:
@@ -22105,8 +22065,8 @@ MonoBehaviour:
   name: Prince
   model: {fileID: 0}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &889789212
 BoxCollider:
@@ -22584,10 +22544,10 @@ MonoBehaviour:
   DefaultCamera: {fileID: 1557682666}
   ID: 1
   name: Mars
-  model: {fileID: 0}
+  model: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &1096558536
 BoxCollider:
@@ -22939,8 +22899,8 @@ MonoBehaviour:
   name: Stephen
   model: {fileID: 0}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &1148874473
 BoxCollider:
@@ -23832,10 +23792,10 @@ MonoBehaviour:
   DefaultCamera: {fileID: 716400989}
   ID: 0
   name: Amber
-  model: {fileID: 0}
+  model: {fileID: 4648970540146242549, guid: 231a0bf2715472a4cb07e82503bf47ac, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &1507391205
 BoxCollider:
@@ -24174,7 +24134,7 @@ Light:
   m_BounceIntensity: 0.69
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.1595e-41, y: 2.524355e-29, z: 0, w: 7.593765e+29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -24479,11 +24439,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 1254402660}
   ID: 1
-  name: Prince
+  name: Claire
   model: {fileID: 0}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &1741124236
 BoxCollider:
@@ -24830,138 +24790,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1830513338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1830513343}
-  - component: {fileID: 1830513342}
-  - component: {fileID: 1830513341}
-  - component: {fileID: 1830513340}
-  - component: {fileID: 1830513339}
-  m_Layer: 0
-  m_Name: CharacterInfo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1830513339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830513338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5acbfe77d1318445abd1376997205a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterInfo
-  player1Character: 
-  legPower1: 0
-  cooldown1: 0
-  steerAngle1: 0
-  player2Character: 
-  legPower2: 0
-  cooldown2: 0
-  steerAngle2: 0
---- !u!65 &1830513340
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830513338}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1830513341
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830513338}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1830513342
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830513338}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1830513343
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830513338}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.73086, y: 0, z: 2.743}
-  m_LocalScale: {x: 1, y: 15.748033, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842343979
 GameObject:
   m_ObjectHideFlags: 0
@@ -30081,8 +29909,8 @@ MonoBehaviour:
   name: Rio
   model: {fileID: 0}
   nameSprite: {fileID: 0}
-  legPower: 15
-  cooldown: 0.3
+  legPower: 30
+  cooldown: 0.2
   steerAngle: 45
 --- !u!65 &1987862022
 BoxCollider:
@@ -45281,8 +45109,8 @@ Light:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2094338514}
   - {fileID: 208024331}
+  - {fileID: 2094338514}
   - {fileID: 90131540}
   - {fileID: 247711226}
   - {fileID: 1507391208}
@@ -45294,7 +45122,6 @@ SceneRoots:
   - {fileID: 1987862025}
   - {fileID: 889789215}
   - {fileID: 1741124239}
-  - {fileID: 1830513343}
   - {fileID: 619014286}
   - {fileID: 1378870800}
   - {fileID: 1580345389}
