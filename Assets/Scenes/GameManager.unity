@@ -156,7 +156,7 @@ MonoBehaviour:
   isInTrack: 0
   playerInputManager: {fileID: 1927294229}
   currentScene: 0
-  defaultModelIfNoNull: {fileID: 0}
+  defaultModelIfNoNull: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
 --- !u!4 &1927294228
 Transform:
   m_ObjectHideFlags: 0

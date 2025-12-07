@@ -86,7 +86,14 @@ public class CharacterManager : MonoBehaviour
         }
         
         // Let both players navigate, its gonna be funny (maybe)
-        nav = characterSelectors[0].GetNavigate();
+        foreach (CharacterSelectControls input in characterSelectors)
+        {
+            if (input.GetNavigate().x == 0)
+            {
+                continue; 
+            }
+            nav = input.GetNavigate();
+        }
         // nav = characterSelectors[1].GetNavigate(); // Idk how to make them fight each other lol.
         
         if (currentIndex != -1)
