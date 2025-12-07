@@ -64,6 +64,8 @@ public class CharacterManager : MonoBehaviour
         control.playerInput = newPlayerInput;
         
         CharacterSelector infoHolder = newPlayer.GetComponent<CharacterSelector>();
+        infoHolder.playerId = PlayerInputManager.instance.playerCount;
+        print(infoHolder.playerId);
         infoHolder.myManager = newPlayerInput.GetComponent<PlayerManager>();
         OnNewPlayerJoin.Invoke();
     }
@@ -128,7 +130,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     Character selected = availableCharacters[currentIndex];
                     CharacterSelector infoHolder = input.GetComponent<CharacterSelector>();
-
+                    
                     infoHolder.characterName = selected.name;
                     infoHolder.legLength = selected.legPower;
                     infoHolder.legCooldown = selected.cooldown;

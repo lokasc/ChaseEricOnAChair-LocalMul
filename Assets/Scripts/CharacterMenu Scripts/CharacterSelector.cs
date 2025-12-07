@@ -6,6 +6,8 @@ public class CharacterSelector : MonoBehaviour
 {
     public PlayerManager myManager;
     public bool isSelected = false;
+    public int playerId;
+    
     
     [Header("Stats to collect")] public string characterName;
     public float legLength;
