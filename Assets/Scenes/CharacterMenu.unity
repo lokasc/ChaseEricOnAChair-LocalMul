@@ -11548,9 +11548,9 @@ MonoBehaviour:
   name: Destin
   model: {fileID: 5784587057517872704, guid: 9d23285d6a8a5f745be94d708fc49112, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 90
+  legPower: 95
   cooldown: 0.68
-  steerAngle: 10
+  steerAngle: 20
 --- !u!65 &366742723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27505,8 +27505,8 @@ MonoBehaviour:
   name: George
   model: {fileID: 5534576086532103342, guid: a9ab0f0e3e8ef904a8ab671c17a6d744, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 45
-  cooldown: 0.62
+  legPower: 53
+  cooldown: 0.55
   steerAngle: 75
 --- !u!65 &858822909
 BoxCollider:
@@ -27642,9 +27642,9 @@ MonoBehaviour:
   name: Prince
   model: {fileID: 7846811387354180541, guid: 0bf1756e439c8f14286e5bb6b7446331, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 45
-  cooldown: 0.6
-  steerAngle: 30
+  legPower: 55
+  cooldown: 0.35
+  steerAngle: 35
 --- !u!65 &889789212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28123,8 +28123,8 @@ MonoBehaviour:
   name: Amber
   model: {fileID: 4648970540146242549, guid: 231a0bf2715472a4cb07e82503bf47ac, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 39
-  cooldown: 0.72
+  legPower: 55
+  cooldown: 0.7
   steerAngle: 80
 --- !u!65 &1096558536
 BoxCollider:
@@ -28476,9 +28476,9 @@ MonoBehaviour:
   name: Stephen
   model: {fileID: 7675886064763332850, guid: 84be3de8acbe6d742aa46787937c4896, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 45
+  legPower: 54
   cooldown: 0.65
-  steerAngle: 50
+  steerAngle: 55
 --- !u!65 &1148874473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29474,9 +29474,9 @@ MonoBehaviour:
   name: Mars
   model: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
+  legPower: 40
   cooldown: 0.2
-  steerAngle: 10
+  steerAngle: 15
 --- !u!65 &1507391205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30050,9 +30050,9 @@ MonoBehaviour:
   name: Claire
   model: {fileID: 8782637482888108958, guid: f4c278489d7b2a54e961366df51bba60, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 80
-  cooldown: 0.6
-  steerAngle: 25
+  legPower: 82
+  cooldown: 0.55
+  steerAngle: 30
 --- !u!65 &1741124236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35774,9 +35774,9 @@ MonoBehaviour:
   name: Rio
   model: {fileID: 7466612877635018863, guid: bc5c677c5c1e31944ada4a5c0790bcf1, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 50
+  cooldown: 0.4
+  steerAngle: 60
 --- !u!65 &1987862022
 BoxCollider:
   m_ObjectHideFlags: 0
