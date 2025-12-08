@@ -76,4 +76,11 @@ public class Chair : MonoBehaviour
     {
         canDrive = true;
     }
+
+//for the visual side
+    public bool GetCanMash()
+    {
+        return canMash;
+    }
+
 }
