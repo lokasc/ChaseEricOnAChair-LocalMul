@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Chair : MonoBehaviour
 {
+    private const float perCoinPower = 5f;
+    
     [Header("Player Profile")] 
     public float legPower = 30f;
     public float legCoolDown = 0.5f;
     public float maxSteerAngle = 45f;
+
+    public int currentCoins = 0;
     
     [Header("References")]
     [SerializeField] private Rigidbody rb;
@@ -51,7 +55,7 @@ public class Chair : MonoBehaviour
             canMash = false;
             
             chair.transform.Rotate(new Vector3(0f, playerInput.GetSteerValue() * maxSteerAngle, 0f));
-            rb.AddForce(legPower * chair.transform.forward, ForceMode.Impulse);
+            rb.AddForce((legPower + currentCoins * perCoinPower)* chair.transform.forward , ForceMode.Impulse);
         }
         
         // Set the transform
@@ -83,4 +87,15 @@ public class Chair : MonoBehaviour
         return canMash;
     }
 
+    public void AddCoin(int amount)
+    {
+        currentCoins += amount;
+        print("Coin added!");
+    }
+
+    public void RemoveCoin(int amount)
+    {
+        currentCoins -= amount;
+        if (currentCoins < 0) { currentCoins = 0; }
+    }
 }
