@@ -27503,11 +27503,11 @@ MonoBehaviour:
   DefaultCamera: {fileID: 817897874}
   ID: 7
   name: George
-  model: {fileID: 0}
+  model: {fileID: 5534576086532103342, guid: a9ab0f0e3e8ef904a8ab671c17a6d744, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 45
+  cooldown: 0.62
+  steerAngle: 75
 --- !u!65 &858822909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27640,11 +27640,11 @@ MonoBehaviour:
   DefaultCamera: {fileID: 170118594}
   ID: 5
   name: Prince
-  model: {fileID: 0}
+  model: {fileID: 7846811387354180541, guid: 0bf1756e439c8f14286e5bb6b7446331, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 45
+  cooldown: 0.6
+  steerAngle: 30
 --- !u!65 &889789212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27908,9 +27908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ecab649b7a33c4f849645236a68537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CMSpinningFigure
-  rotationSpeed: 20
-  bobAmplitude: 0.1
-  bobFrequency: 1
+  rotationSpeed: 30
+  bobAmplitude: 0.55
+  bobFrequency: 65
 --- !u!1001 &1084416821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30048,11 +30048,11 @@ MonoBehaviour:
   DefaultCamera: {fileID: 1254402660}
   ID: 6
   name: Claire
-  model: {fileID: 0}
+  model: {fileID: 8782637482888108958, guid: f4c278489d7b2a54e961366df51bba60, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 80
+  cooldown: 0.6
+  steerAngle: 25
 --- !u!65 &1741124236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35772,7 +35772,7 @@ MonoBehaviour:
   DefaultCamera: {fileID: 452145425}
   ID: 4
   name: Rio
-  model: {fileID: 0}
+  model: {fileID: 7466612877635018863, guid: bc5c677c5c1e31944ada4a5c0790bcf1, type: 3}
   nameSprite: {fileID: 0}
   legPower: 30
   cooldown: 0.2
