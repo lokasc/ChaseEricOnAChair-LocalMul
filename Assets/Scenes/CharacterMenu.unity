@@ -11546,11 +11546,11 @@ MonoBehaviour:
   DefaultCamera: {fileID: 242250707}
   ID: 2
   name: Destin
-  model: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
+  model: {fileID: 5784587057517872704, guid: 9d23285d6a8a5f745be94d708fc49112, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 90
+  cooldown: 0.68
+  steerAngle: 10
 --- !u!65 &366742723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28123,9 +28123,9 @@ MonoBehaviour:
   name: Amber
   model: {fileID: 4648970540146242549, guid: 231a0bf2715472a4cb07e82503bf47ac, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 39
+  cooldown: 0.72
+  steerAngle: 80
 --- !u!65 &1096558536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28476,9 +28476,9 @@ MonoBehaviour:
   name: Stephen
   model: {fileID: 7675886064763332850, guid: 84be3de8acbe6d742aa46787937c4896, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
-  cooldown: 0.2
-  steerAngle: 45
+  legPower: 45
+  cooldown: 0.65
+  steerAngle: 50
 --- !u!65 &1148874473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29476,7 +29476,7 @@ MonoBehaviour:
   nameSprite: {fileID: 0}
   legPower: 30
   cooldown: 0.2
-  steerAngle: 45
+  steerAngle: 10
 --- !u!65 &1507391205
 BoxCollider:
   m_ObjectHideFlags: 0

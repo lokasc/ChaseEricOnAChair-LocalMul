@@ -5590,6 +5590,7 @@ MonoBehaviour:
   legPower: 45
   legCoolDown: 0.2
   maxSteerAngle: 45
+  currentCoins: 0
   rb: {fileID: 6506547712811028809}
   playerInput: {fileID: 3878171864731512247}
   chair: {fileID: 8363308926050497995}
@@ -5857,7 +5858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 316889c07fc23ae47a8a1ecacfdd81d0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 316889c07fc23ae47a8a1ecacfdd81d0, type: 3}
       propertyPath: m_LocalScale.x
