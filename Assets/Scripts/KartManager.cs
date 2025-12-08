@@ -88,7 +88,8 @@ public class KartManager : MonoBehaviour
 
             // Place players into the correct positions.
             newPlayer.transform.position = spawnLocation[index].position;
-            newPlayer.transform.rotation = Quaternion.Euler(0, -180, 0);
+            // newPlayer.transform.rotation = Quaternion.Euler(0, -180, 0);
+            newPlayer.transform.rotation = Quaternion.Euler(spawnLocation[index].rotation.eulerAngles);
             
             //Swithc the fuckign input action map cuz unity hella bent and needs a lot of help 
             
