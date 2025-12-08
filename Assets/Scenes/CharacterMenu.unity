@@ -11544,9 +11544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 242250707}
-  ID: 1
+  ID: 2
   name: Destin
-  model: {fileID: 0}
+  model: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
   nameSprite: {fileID: 0}
   legPower: 30
   cooldown: 0.2
@@ -27501,7 +27501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 817897874}
-  ID: 1
+  ID: 7
   name: George
   model: {fileID: 0}
   nameSprite: {fileID: 0}
@@ -27638,7 +27638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 170118594}
-  ID: 1
+  ID: 5
   name: Prince
   model: {fileID: 0}
   nameSprite: {fileID: 0}
@@ -28472,9 +28472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 1842343980}
-  ID: 1
+  ID: 3
   name: Stephen
-  model: {fileID: 0}
+  model: {fileID: 7675886064763332850, guid: 84be3de8acbe6d742aa46787937c4896, type: 3}
   nameSprite: {fileID: 0}
   legPower: 30
   cooldown: 0.2
@@ -30046,7 +30046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 1254402660}
-  ID: 1
+  ID: 6
   name: Claire
   model: {fileID: 0}
   nameSprite: {fileID: 0}
@@ -35770,7 +35770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   DefaultCamera: {fileID: 452145425}
-  ID: 1
+  ID: 4
   name: Rio
   model: {fileID: 0}
   nameSprite: {fileID: 0}
