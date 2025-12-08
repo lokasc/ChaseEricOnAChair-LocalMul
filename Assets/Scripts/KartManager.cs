@@ -19,12 +19,13 @@ public class KartManager : MonoBehaviour
     
     public GameObject chairBasePrefab;
 
-    [SerializeField] private Camera tempCamera;
+    // [SerializeField] private Camera tempCamera;
     public class ChairData
     {
         public Chair chair;
         public int currentLaps;
         public float t; // this is the ratio on the track.
+        public float trueT = 0f;
         
         // Constructor
         public ChairData(Chair chair, int currentLaps = 1, float t = 0f)
@@ -32,6 +33,7 @@ public class KartManager : MonoBehaviour
             this.chair = chair;
             this.currentLaps = currentLaps;
             this.t = t;
+            this.trueT = 0;
         }
     }
     
@@ -104,7 +106,7 @@ public class KartManager : MonoBehaviour
 
         if (!isGameStarted)
         {
-            boss.GetComponent<MoveBasedOnSpline>().combinedSpeed = 0;
+            boss.GetComponent<MoveBasedOnSpline>().currentSpeed = 0;
             return;
         }
         CalculatePositions();
@@ -114,9 +116,9 @@ public class KartManager : MonoBehaviour
     public void StartGame()
     {
         PlayerInputManager.instance.DisableJoining();
-        tempCamera.targetDisplay = 2;
+        // tempCamera.targetDisplay = 2;
         isGameStarted = true;
-        boss.GetComponent<MoveBasedOnSpline>().combinedSpeed = boss.GetComponent<MoveBasedOnSpline>().speed;
+        boss.GetComponent<MoveBasedOnSpline>().currentSpeed = boss.GetComponent<MoveBasedOnSpline>().speed;
         StartCountDown();
     }
 
@@ -139,35 +141,50 @@ public class KartManager : MonoBehaviour
         // Get percentage based on my position.
         foreach (ChairData playerRank in playerRanking)
         {
-            SplineUtility.GetNearestPoint(mapSpline.Spline, playerRank.chair.transform.position, out Unity.Mathematics.float3 nearestPoint,
+            SplineUtility.GetNearestPoint(mapSpline.Spline, playerRank.chair.rb.transform.position, out Unity.Mathematics.float3 nearestPoint,
                 out float t);
+
+            // print(playerRank.chair.rb.transform.position);
+            playerRank.trueT = t;
             
-            // Abs to wrap.
-            float diff = Mathf.Abs(t - bossOffset);
-            playerRank.t = Mathf.Min(diff, 1f - diff);
-            // print("playerRank t: " + t + " bossOffset: " + bossOffset);
-            // print(Mathf.Abs(playerRank.t));
+            float offset = (t - bossOffset + 1f) % 1f;
+
+            // Convert offset into signed -0.5 → +0.5
+            float signedOffset = offset <= 0.5f ? offset : offset - 1f;
+            
+            
+            // -0.5 → boss far ahead (playerbehind boss)
+            // +0.5 → player far ahead (player ahead of boss).
+            playerRank.t = signedOffset;
+
+
+            // // Abs to wrap.
+            // float diff = Mathf.Abs(t - bossOffset);
+            // playerRank.t = Mathf.Min(diff, 1f - diff);
+            // print("Player's offsetted: " + playerRank.t);
+            //print("playerRank t: " + t + " bossOffset: " + bossOffset);
+            // print("Player " + playerRank.chair.name + ": " + playerRank.trueT);
         }
 
-        // Sort based on rank and lap!
-        playerRanking.Sort((a, b) =>
-        {
-            // Compares laps, if b is smaller than a, we compare t
-            // lapCompare is positive if b is larger than a, same is 0
-            int lapCompare = b.currentLaps.CompareTo(a.currentLaps);
-
-            // sort by t if rank is same
-            if (lapCompare != 0) return lapCompare;
-            
-            return a.t.CompareTo(b.t);
-        });
-        string combinedText = "";
-
-        foreach (ChairData x in playerRanking)
-        {
-            
-            combinedText += x.chair.transform.name + " ";
-        }
+        // // Sort based on rank and lap!
+        // playerRanking.Sort((a, b) =>
+        // {
+        //     // Compares laps, if b is smaller than a, we compare t
+        //     // lapCompare is positive if b is larger than a, same is 0
+        //     int lapCompare = b.currentLaps.CompareTo(a.currentLaps);
+        //
+        //     // sort by t if rank is same
+        //     if (lapCompare != 0) return lapCompare;
+        //     
+        //     return a.t.CompareTo(b.t);
+        // });
+        // string combinedText = "";
+        //
+        // foreach (ChairData x in playerRanking)
+        // {
+        //     
+        //     combinedText += x.chair.transform.name + " ";
+        // }
         // print(combinedText);
     }
     

@@ -7,17 +7,18 @@ public class MoveBasedOnSpline : MonoBehaviour
 
     public float speed;
 
-    public float combinedSpeed;
+    public float currentSpeed; // current speed..
     float splineLength,distancePercentage;
+    
     void Start()
     {
-        combinedSpeed = speed;
+        currentSpeed = speed;
         splineLength = spline.CalculateLength();
     }
 
     void Update()
     {
-        distancePercentage += combinedSpeed * Time.deltaTime/splineLength;
+        distancePercentage += currentSpeed * Time.deltaTime/splineLength;
 
         Vector3 currentPosition = spline.EvaluatePosition(distancePercentage);
         transform.position = currentPosition;

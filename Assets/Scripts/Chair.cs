@@ -14,7 +14,7 @@ public class Chair : MonoBehaviour
     public int currentCoins = 0;
     
     [Header("References")]
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
     [SerializeField] public Controls playerInput;
     [SerializeField] private GameObject chair; // This is where everything visual related is. 
     [SerializeField] public ChairUI playerUI;
