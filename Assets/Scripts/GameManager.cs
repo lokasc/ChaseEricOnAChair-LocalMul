@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     public bool isInTrack = false;
     public PlayerInputManager playerInputManager;
     public Scene currentScene;
-
+    public string MapName = "";
+    
+    
     public GameObject defaultModelIfNoNull; //shldnt do this here and move to kartmanager but its the easiest way to modify it cuz its always existing and i really do not car enad give no shits nay mroe. (lies, i do care but i dont care eh, u know waht i mean) 
     
     public enum Scene
@@ -57,6 +59,6 @@ public class GameManager : MonoBehaviour
         playerInputManager.DisableJoining();
         print("Going to next level!");
         SceneManager.UnloadSceneAsync("CharacterMenu", UnloadSceneOptions.None);
-        SceneManager.LoadScene("Map1", LoadSceneMode.Additive);
+        SceneManager.LoadScene(MapName, LoadSceneMode.Additive);
     }
 }

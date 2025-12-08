@@ -14,6 +14,9 @@ public class MoveBasedOnSpline : MonoBehaviour
     {
         currentSpeed = speed;
         splineLength = spline.CalculateLength();
+        distancePercentage += currentSpeed * Time.deltaTime/splineLength;
+
+        
     }
 
     void Update()

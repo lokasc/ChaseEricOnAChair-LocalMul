@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBasedOnSpline
   spline: {fileID: 0}
-  speed: 50
+  speed: 25
   currentSpeed: 0
 --- !u!65 &6194772770254240974
 BoxCollider:
