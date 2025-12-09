@@ -260,7 +260,8 @@ public class KartManager : MonoBehaviour
             .AppendCallback(() =>
             {
                 print("SEND TO NEXT SCENE!");
-                GameManager.instance.TransitionToVictoryScene(winningPlayer.playerInput.gameObject.transform.GetComponent<PlayerManager>());
+                // print(winningPlayer.playerInput.playerInput.gameObject.transform.GetComponent<PlayerManager>());
+                GameManager.instance.TransitionToVictoryScene(winningPlayer.playerInput.playerInput.gameObject.transform.GetComponent<PlayerManager>());
             })
             ;
     }
