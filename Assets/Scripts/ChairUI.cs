@@ -4,6 +4,7 @@ using TMPro;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ChairUI : MonoBehaviour
 {
@@ -16,9 +17,15 @@ public class ChairUI : MonoBehaviour
 
     private Vector3 countDownInitialScale;
 
+    [Header("ZimmerUI")] 
+    public Image winnie1;
+    public Image winnie2;
+    public Image winnie3;
+    
+    
     private void Start()
     {
-        countDownInitialScale = countDownText.transform.localScale;
+        countDownInitialScale = winnie1.transform.localScale;
     }
 
     // Update is called once per frame
@@ -30,28 +37,30 @@ public class ChairUI : MonoBehaviour
 
     public void StartCountDown()
     {
+        winnie1.gameObject.SetActive(true);
         Sequence s = DOTween.Sequence();
-        s.Append(countDownText.DOFade(0, 1f))
-            .Join(countDownText.transform.DOScale(Vector3.one, 1))
+        s.Append(winnie1.DOFade(0, 1f).SetEase(Ease.InQuad))
+            .Join(winnie1.transform.DOScale(Vector3.one, 1.0f))
             .AppendCallback(() =>
             {
-                countDownText.transform.localScale = countDownInitialScale;
-                countDownText.text = "2";
-                countDownText.alpha = 1;
+                winnie1.gameObject.SetActive(false);
+                winnie2.gameObject.SetActive(true);
+                winnie2.transform.localScale = countDownInitialScale;
             })
-            .Append(countDownText.DOFade(0, 1f))
-            .Join(countDownText.transform.DOScale(Vector3.one, 1))
+            .Append(winnie2.DOFade(0, 1f).SetEase(Ease.InQuad))
+            .Join(winnie2.transform.DOScale(Vector3.one, 1.0f))
             .AppendCallback(() =>
             {
-                countDownText.transform.localScale = countDownInitialScale;
-                countDownText.text = "1";
-                countDownText.alpha = 1;
+                winnie2.gameObject.SetActive(false);
+                winnie3.gameObject.SetActive(true);
+                winnie3.transform.localScale = countDownInitialScale;
             })
-            .Append(countDownText.DOFade(0, 1f))
-            .Join(countDownText.transform.DOScale(Vector3.one, 1))
+            .Append(winnie3.DOFade(0, 1f).SetEase(Ease.InQuad))
+            .Join(winnie3.transform.DOScale(Vector3.one, 1.0f))
             .AppendCallback(() =>
             {
                 // What happens when it completes?, event will decide
+                winnie3.gameObject.SetActive(false);
                 onCountDownComplete.Invoke();
             });
     }
