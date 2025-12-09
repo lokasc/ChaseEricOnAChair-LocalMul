@@ -27,6 +27,9 @@ public class VictoryUIManager : MonoBehaviour
 
     [Header("BOTTOMZIMMERTEXT")] 
     public TextMeshProUGUI zimmerText;
+    public TextMeshProUGUI zimmerText2;
+
+    //public Transform winnerNameHolder;
     
     public UnityEvent zimmerOnScoreCompleteEvent;
     public TextMeshProUGUI zimmerReminder;
@@ -35,6 +38,8 @@ public class VictoryUIManager : MonoBehaviour
     private Vector3 flagsInitialPos;
     private Vector3 victoryTextInitialScale;
     private Vector3 finalScoreInitialScale;
+
+    //private Vector3 winnerNameInitialScale;
     private Vector3 BInitialScale;
 
     private bool startBScaleDown = false;
@@ -52,6 +57,8 @@ public class VictoryUIManager : MonoBehaviour
         flagsInitialPos = flags.rectTransform.anchoredPosition;
         victoryTextInitialScale = victoryText.localScale;
         finalScoreInitialScale = finalScore.localScale;
+        //winnerNameInitialScale = winnerNameHolder.localScale;
+        
 
         BInitialScale = B.rectTransform.localScale;
         B.gameObject.SetActive(false);
@@ -62,6 +69,7 @@ public class VictoryUIManager : MonoBehaviour
         if (gm != null)
         {
             zimmerText.text = gm.winningPlayer.characterName;
+            zimmerText2.text = gm.winningPlayer.characterName;
             zimmerReminder.text = gm.winningPlayer.characterName + "! Press X to restart";
         }
        
@@ -101,6 +109,10 @@ public class VictoryUIManager : MonoBehaviour
         float scaleOffset = Mathf.Sin(Time.time * textScaleSpeed) * textScaleAmount;
         victoryText.localScale = victoryTextInitialScale * (1 + scaleOffset);
         finalScore.localScale = finalScoreInitialScale * (1 + scaleOffset);
+        
+        //winnerNameHolder.localScale = winnerNameInitialScale * (1 + scaleOffset);
+
+
     }
 
     private IEnumerator AnimateScores()
