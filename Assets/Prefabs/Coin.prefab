@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3478578006439100328}
   - component: {fileID: 2859712936742630780}
   - component: {fileID: 4162735871373807127}
+  - component: {fileID: 8639360088898619251}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -50,7 +51,20 @@ MonoBehaviour:
   rotationSpeed: 150
   OnCoinCollected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8639360088898619251}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sphereCollider: {fileID: 4162735871373807127}
 --- !u!135 &4162735871373807127
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +86,35 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8639360088898619251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392906063020702790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fca9231339680a4499f31ae4c226513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2859712936742630780}
+        m_TargetAssemblyTypeName: ZimmerCoin, Assembly-CSharp
+        m_MethodName: OnTimerFinish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  currentTime: 0
+  isRunning: 0
 --- !u!1 &1268012958244056459
 GameObject:
   m_ObjectHideFlags: 0

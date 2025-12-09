@@ -5,6 +5,8 @@ public class ZimmerCoin : MonoBehaviour
 {
     public float rotationSpeed = 150f;
     public UnityEvent OnCoinCollected;
+    // public float respawnTime;
+    public Collider sphereCollider;
     
     void Update()
     {
@@ -20,9 +22,16 @@ public class ZimmerCoin : MonoBehaviour
             Chair zimmerChair= other.transform.parent.GetComponent<Chair>();
             zimmerChair.AddCoin(1);
             OnCoinCollected.Invoke();
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            sphereCollider.enabled = false;
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
         }
-        
+    }
+
+    public void OnTimerFinish()
+    {
+        sphereCollider.enabled = true;
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
     }
 }
