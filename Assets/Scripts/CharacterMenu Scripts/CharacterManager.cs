@@ -28,6 +28,11 @@ public class CharacterManager : MonoBehaviour
     bool isAnimating; //if camera is moving
     float transitionTime = 0.5f;//how fast we want the camera movements to be
     public int currentIndex = -1;//-1 is overview
+   
+    // SinglePlayer Debug:
+    public bool isSinglePlayer = false;
+    
+    
     
     //overview camera movement
     float overviewOscillateSpeed = 0.5f;
@@ -35,6 +40,9 @@ public class CharacterManager : MonoBehaviour
     float overviewMaxZ = 68f;
 
     float overviewOscillateTime = 0f;
+    
+    
+    
     
     void Start()
     {
@@ -70,6 +78,11 @@ public class CharacterManager : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            isSinglePlayer = true;
+        }
+        
         if (isAnimating) return;
         Vector2 nav = new Vector2();
 
@@ -167,14 +180,25 @@ public class CharacterManager : MonoBehaviour
                 return; // this line is here so that u cant press select and go into the next level as the first player
             }
         }
-        
-        // When both players have selected characters and ready to go.
-        if (characterSelectors[0].SelectPressed() && IsPlayersReady() && PlayerInputManager.instance.playerCount > 1 )
+
+        if (isSinglePlayer)
         {
-            // ask gm to call next.
-            GameManager.instance.TransferToTrack();
+            if (characterSelectors[0].SelectPressed() && IsPlayersReady() && PlayerInputManager.instance.playerCount >= 1 )
+            {
+                // ask gm to call next.
+                print("SinglePlayer Mode ");
+                GameManager.instance.TransferToTrack();
+            }
         }
-        
+        else
+        {
+            // When both players have selected characters and ready to go.
+            if (characterSelectors[0].SelectPressed() && IsPlayersReady() && PlayerInputManager.instance.playerCount >= 2 )
+            {
+                // ask gm to call next.
+                GameManager.instance.TransferToTrack();
+            }
+        }
 
         // If anyone pressses go back, we remove selected choices and we go to main menu
         foreach (CharacterSelectControls input in characterSelectors)
