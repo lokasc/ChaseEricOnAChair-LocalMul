@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d575c74d7fd42a42a2d487f58c0b0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxDistanceToStop: 0.41
+  maxDistanceToStop: 0.1
   mapSpline: {fileID: 0}
   movement: {fileID: 917592420305044072}
 --- !u!114 &917592420305044072
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBasedOnSpline
   spline: {fileID: 0}
-  speed: 25
+  speed: 1
   currentSpeed: 0
 --- !u!65 &6194772770254240974
 BoxCollider:

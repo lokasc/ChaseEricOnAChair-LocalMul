@@ -2,8 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.Splines;
 using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using Unity.Mathematics;
-using UnityEditor;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 // Need to rename this to KartManager.
@@ -19,6 +21,8 @@ public class KartManager : MonoBehaviour
     
     public GameObject chairBasePrefab;
 
+    public TextMeshProUGUI finishText;
+    
     // [SerializeField] private Camera tempCamera;
     public class ChairData
     {
@@ -92,8 +96,13 @@ public class KartManager : MonoBehaviour
             newPlayer.transform.rotation = Quaternion.Euler(spawnLocation[index].rotation.eulerAngles);
             
             //Swithc the fuckign input action map cuz unity hella bent and needs a lot of help 
-            
             player.playerInput.SwitchCurrentActionMap("Driving");
+            
+            //Put this new object in to the driving scene and not in game manager:
+            SceneManager.MoveGameObjectToScene(newPlayer, gameObject.scene);
+            
+            
+            
             index++;
         }
 
@@ -232,4 +241,29 @@ public class KartManager : MonoBehaviour
             }
         }
     }
+    
+    // When finish, flash FINISH! to the screen and stop the game from continuing.
+    public void OnPlayerFinish(Chair winningPlayer)
+    {
+        print(winningPlayer.name);
+        finishText.gameObject.SetActive(true);
+        finishText.alpha = 0;
+        finishText.DOFade(1, 0.2f).SetEase(Ease.OutQuad);
+
+        
+        // Quick hack way of adding a stupid delay after the tween so i can do oncomplete a bit after
+        Sequence animationSequence = DOTween.Sequence();
+        finishText.transform.localScale = new Vector3(1, 1, 1);
+        animationSequence
+            .Append(finishText.transform.DOScale(new Vector3(3, 3, 3), 3f).SetEase(Ease.OutQuint))
+            .AppendInterval(2f)
+            .AppendCallback(() =>
+            {
+                print("SEND TO NEXT SCENE!");
+                GameManager.instance.TransitionToVictoryScene(winningPlayer.playerInput.gameObject.transform.GetComponent<PlayerManager>());
+            })
+            ;
+    }
+    
+    
 }

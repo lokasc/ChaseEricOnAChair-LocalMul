@@ -13,6 +13,8 @@ public class EricLogic : MonoBehaviour
     public SplineContainer mapSpline; // This is the same one in the kart manager.
 
     public MoveBasedOnSpline movement;
+
+    public bool winnningPlayerCollided;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +36,7 @@ public class EricLogic : MonoBehaviour
                 closestT = Mathf.Abs(chairData.t);
             }
         }
-        print(closestT);
+        // print(closestT);
 
         // If eric is too far! we stop!
         if (closestT >= maxDistanceToStop)
@@ -46,12 +48,22 @@ public class EricLogic : MonoBehaviour
             movement.currentSpeed = movement.speed;
         }
     }
-
+    
+    // Check if player collided.
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
-        if (other.gameObject.tag == "Player")
+        // How the fuck would I do this?
+        if (other.gameObject.tag == "Player" && !winnningPlayerCollided)
         {
+            // when eric is collided by someone, they win right?
+            Chair winningPlayer = other.transform.parent.GetComponent<Chair>();
+            KartManager.Instance.OnPlayerFinish(winningPlayer);
+            winnningPlayerCollided = true;
+            // 1. get who won and get the loser.
+            // 2. KART MANAGER SAYS GAME FINISHED!!!!
+            // 3. Send who won to gamemanager.
+            // 5. GOD WHY THE FUCK DO I HAVE SO MANY MANAGERS and I HATE SINGLETONS.
+            // 4. TRANSITION TO THE Victory Screen
         }
     }
 }
