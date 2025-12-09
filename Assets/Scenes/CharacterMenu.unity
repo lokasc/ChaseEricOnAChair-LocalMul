@@ -27506,7 +27506,7 @@ MonoBehaviour:
   name: Whit
   model: {fileID: 4482046454342266163, guid: 22f0385a04cc7ab4f94dcdf19957aa97, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 80
+  legPower: 70
   cooldown: 0.35
   steerAngle: 30
 --- !u!65 &844749863
@@ -29180,7 +29180,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4a2292d7c1d83ce4f98e7b1a59449063, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1064cd51a85a08b4e8861862278e6e79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
