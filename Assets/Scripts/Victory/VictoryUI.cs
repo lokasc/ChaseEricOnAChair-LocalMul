@@ -56,6 +56,8 @@ public class VictoryUIManager : MonoBehaviour
         AnimateFlags();
         AnimateText();
 
+
+        //B shrink triggered
         if (startBScaleDown)
         {
             Vector3 currentScale = B.rectTransform.localScale;
@@ -64,6 +66,7 @@ public class VictoryUIManager : MonoBehaviour
             if (Vector3.Distance(B.rectTransform.localScale, BInitialScale) < 0.001f)
             {
                 B.rectTransform.localScale = BInitialScale;
+                //LUCAS, IT WOULD BE HERE WHERE YOU WOULD START CHECKING FOR PLAYER INPUT
                 startBScaleDown = false;
             }
         }
