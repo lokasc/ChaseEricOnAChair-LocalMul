@@ -19,6 +19,8 @@ public class VictoryInputStuff : MonoBehaviour
         {
             player.playerInput.SwitchCurrentActionMap("CharacterSelect");
         }
+
+        PlayerInputManager.instance.splitScreen = false;
     }
     
     void Update()

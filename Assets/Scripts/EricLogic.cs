@@ -49,21 +49,47 @@ public class EricLogic : MonoBehaviour
         }
     }
     
-    // Check if player collided.
+    // Send Players to ZimmerHell or Let them go to ZimmerhEaven
     private void OnTriggerEnter(Collider other)
     {
-        // How the fuck would I do this?
-        if (other.gameObject.tag == "Player" && !winnningPlayerCollided)
+        // Check if player is infront
+        if (other.gameObject.tag != "Player") { return; }
+
+        // Direction from me to the player
+        Vector3 direction = (other.transform.position - transform.position).normalized;
+
+        // Compare direction to my forward direction // i got lazy, its 3am i dont wanna think about maths.
+        float dot = Vector3.Dot(transform.forward, direction);
+        
+        // kill the player if they collide from the front. 
+        if (dot > 0)
         {
-            // when eric is collided by someone, they win right?
-            Chair winningPlayer = other.transform.parent.GetComponent<Chair>();
-            KartManager.Instance.OnPlayerFinish(winningPlayer);
-            winnningPlayerCollided = true;
-            // 1. get who won and get the loser.
-            // 2. KART MANAGER SAYS GAME FINISHED!!!!
-            // 3. Send who won to gamemanager.
-            // 5. GOD WHY THE FUCK DO I HAVE SO MANY MANAGERS and I HATE SINGLETONS.
-            // 4. TRANSITION TO THE Victory Screen
+            //KartManager.Instance.RespawnPlayer(other.transform.parent.GetComponent<Chair>());
         }
+        else // player wins if collide at back
+        {
+            if (!winnningPlayerCollided)
+            {
+                // when eric is collided by someone, they win right?
+                Chair winningPlayer = other.transform.parent.GetComponent<Chair>();
+                KartManager.Instance.OnPlayerFinish(winningPlayer);
+                winnningPlayerCollided = true;
+            }
+        }
+        
+
+        // // How the fuck would I do this?
+        // if (other.gameObject.tag == "Player" && !winnningPlayerCollided)
+        // {
+        //     // when eric is collided by someone, they win right?
+        //     Chair winningPlayer = other.transform.parent.GetComponent<Chair>();
+        //     KartManager.Instance.OnPlayerFinish(winningPlayer);
+        //     winnningPlayerCollided = true;
+        //     // 1. get who won and get the loser.
+        //     // 2. KART MANAGER SAYS GAME FINISHED!!!!
+        //     // 3. Send who won to gamemanager.
+        //     // 5. GOD WHY THE FUCK DO I HAVE SO MANY MANAGERS and I HATE SINGLETONS.
+        //     // 4. TRANSITION TO THE Victory Screen
+        // }
     }
 }
