@@ -24,6 +24,8 @@ public class VictoryUIManager : MonoBehaviour
     public Image B;
     public float BScaleDownSpeed = 2f;
 
+    [Header("BOTTOMZIMMERTEXT")] public TextMeshProUGUI zimmerText;
+    
     private Vector3 scoreHolderInitialScale;
     private Vector3 flagsInitialPos;
     private Vector3 victoryTextInitialScale;
@@ -31,7 +33,8 @@ public class VictoryUIManager : MonoBehaviour
     private Vector3 BInitialScale;
 
     private bool startBScaleDown = false;
-
+    private GameManager gm;
+    
     void Start()
     {
 /*store B and scoreholder size, set initial size, and 0 for score boxes*/
@@ -47,8 +50,15 @@ public class VictoryUIManager : MonoBehaviour
 
         BInitialScale = B.rectTransform.localScale;
         B.gameObject.SetActive(false);
-
         StartCoroutine(AnimateScores());
+        
+        // Set name of winning player
+        gm = FindObjectOfType<GameManager>();
+        if (gm != null)
+        {
+            zimmerText.text = gm.winningPlayer.characterName;
+        }
+       
     }
 
     void Update()
