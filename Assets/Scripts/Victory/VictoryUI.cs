@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Events;
 
 public class VictoryUIManager : MonoBehaviour
 {
@@ -24,7 +25,11 @@ public class VictoryUIManager : MonoBehaviour
     public Image B;
     public float BScaleDownSpeed = 2f;
 
-    [Header("BOTTOMZIMMERTEXT")] public TextMeshProUGUI zimmerText;
+    [Header("BOTTOMZIMMERTEXT")] 
+    public TextMeshProUGUI zimmerText;
+    
+    public UnityEvent zimmerOnScoreCompleteEvent;
+    public TextMeshProUGUI zimmerReminder;
     
     private Vector3 scoreHolderInitialScale;
     private Vector3 flagsInitialPos;
@@ -57,6 +62,7 @@ public class VictoryUIManager : MonoBehaviour
         if (gm != null)
         {
             zimmerText.text = gm.winningPlayer.characterName;
+            zimmerReminder.text = gm.winningPlayer.characterName + "! Press X to restart";
         }
        
     }
@@ -77,6 +83,8 @@ public class VictoryUIManager : MonoBehaviour
             {
                 B.rectTransform.localScale = BInitialScale;
                 //LUCAS, IT WOULD BE HERE WHERE YOU WOULD START CHECKING FOR PLAYER INPUT
+                //OMG THANK YOU I WAS GONNA SPEND SO MUCH TIME FINDING IT.
+                zimmerOnScoreCompleteEvent.Invoke();
                 startBScaleDown = false;
             }
         }

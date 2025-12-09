@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         print("Going to next level!");
         SceneManager.UnloadSceneAsync("CharacterMenu", UnloadSceneOptions.None);
         SceneManager.LoadScene(MapName, LoadSceneMode.Additive);
+        currentScene = Scene.Track;
     }
 
     // Transfer to victory Scene.
@@ -65,5 +66,11 @@ public class GameManager : MonoBehaviour
         winningPlayer = winningPM;
         SceneManager.UnloadSceneAsync(MapName, UnloadSceneOptions.None);
         SceneManager.LoadScene(VictorySceneName, LoadSceneMode.Additive);
+    }
+
+    // Removes everything and reloads the game lol.
+    public void ReloadTheGame()
+    {
+        SceneManager.LoadScene("GameManager", LoadSceneMode.Single);
     }
 }
