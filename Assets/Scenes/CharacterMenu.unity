@@ -11550,7 +11550,7 @@ MonoBehaviour:
   name: Destin
   model: {fileID: 5784587057517872704, guid: 9d23285d6a8a5f745be94d708fc49112, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 95
+  legPower: 120
   cooldown: 0.6
   steerAngle: 30
 --- !u!65 &366742723
@@ -28535,9 +28535,9 @@ MonoBehaviour:
   name: Amber
   model: {fileID: 4648970540146242549, guid: 231a0bf2715472a4cb07e82503bf47ac, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 60
-  cooldown: 0.55
-  steerAngle: 80
+  legPower: 80
+  cooldown: 0.4
+  steerAngle: 65
 --- !u!65 &1096558536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28888,8 +28888,8 @@ MonoBehaviour:
   name: Stephen
   model: {fileID: 7675886064763332850, guid: 84be3de8acbe6d742aa46787937c4896, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 66
-  cooldown: 0.45
+  legPower: 70
+  cooldown: 0.4
   steerAngle: 55
 --- !u!65 &1148874473
 BoxCollider:
@@ -34934,7 +34934,7 @@ MonoBehaviour:
   name: Mars
   model: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 15
+  legPower: 18
   cooldown: 0.1
   steerAngle: 15
 --- !u!65 &1507391205
