@@ -1170,7 +1170,7 @@ MonoBehaviour:
   - George
   - Whit
   currentIndex: -1
-  isSinglePlayer: 0
+  isSinglePlayer: 1
 --- !u!1 &211234019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 727023f194a39c94a94af1c49f700af9, type: 3}
@@ -29619,7 +29619,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3e2dcb422b05241498b383d301dd7ec9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 324c2f9c6665ade44bd82d508a995550, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
