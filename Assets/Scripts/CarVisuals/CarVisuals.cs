@@ -17,14 +17,14 @@ public class CarVisuals : MonoBehaviour
     private bool isStretched;
 
     private GameObject particleDust;
+    
+    public ParticleSystem particleSystem;
 
     void Awake()
     {
         chair = GetComponent<Chair>();
         defaultScale = model.localScale;
         prevCanMash = chair.GetCanMash();
-
-
     }
 
     void Update()
@@ -72,11 +72,9 @@ public class CarVisuals : MonoBehaviour
         s.y = stretchAmount;
         model.localScale = s;
         isStretched = true;
-
-        //particles
-        Instantiate(particlePrefab, transform.position, transform.rotation);
-
-
+        
+        // Play Particles
+        particleSystem.Play();
     }
 
 

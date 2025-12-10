@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3092961327020521739}
   - component: {fileID: 8720176180807911892}
   - component: {fileID: 6778484736082568384}
-  - component: {fileID: 1161077703774622331}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -110,7 +109,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4898,22 +4897,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1161077703774622331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80208204393837796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee36b2fd7cfc14f439550d4735128e11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CarVisuals
-  model: {fileID: 3092961327020521739}
-  stretchAmount: 0.8
-  returnSpeed: 10
-  particlePrefab: {fileID: 3777319862777081427, guid: c2a92d6f2b556de42a81ce0c4dc00fe3, type: 3}
 --- !u!1 &1241766335692138206
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,7 +5754,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7287531804297256334}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee36b2fd7cfc14f439550d4735128e11, type: 3}
   m_Name: 
@@ -5780,6 +5763,7 @@ MonoBehaviour:
   stretchAmount: 0.8
   returnSpeed: 10
   particlePrefab: {fileID: 3777319862777081427, guid: c2a92d6f2b556de42a81ce0c4dc00fe3, type: 3}
+  particleSystem: {fileID: 8720176180807911892}
 --- !u!1 &8363308926050497995
 GameObject:
   m_ObjectHideFlags: 0
