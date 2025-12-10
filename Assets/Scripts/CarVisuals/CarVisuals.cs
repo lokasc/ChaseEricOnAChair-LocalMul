@@ -8,13 +8,15 @@ public class CarVisuals : MonoBehaviour
     public float stretchAmount = 0.8f; 
     public float returnSpeed = 10f; 
 
-    public GameObject particleContainer;
-    public float particleDuration = 0.2f;
+    public GameObject particlePrefab;
+    //public float particleDuration = 0.2f;
 
     private Chair chair;
     private Vector3 defaultScale;
     private bool prevCanMash;
     private bool isStretched;
+
+    private GameObject particleDust;
 
     void Awake()
     {
@@ -22,8 +24,7 @@ public class CarVisuals : MonoBehaviour
         defaultScale = model.localScale;
         prevCanMash = chair.GetCanMash();
 
-        if (particleContainer != null)
-            particleContainer.SetActive(false);
+
     }
 
     void Update()
@@ -72,14 +73,11 @@ public class CarVisuals : MonoBehaviour
         model.localScale = s;
         isStretched = true;
 
-        if (particleContainer != null)
-            StartCoroutine(ShowParticles());
+        //particles
+        Instantiate(particlePrefab, transform.position, transform.rotation);
+
+
     }
 
-    private IEnumerator ShowParticles()
-    {
-        particleContainer.SetActive(true);
-        yield return new WaitForSeconds(particleDuration);
-        particleContainer.SetActive(false);
-    }
+
 }
