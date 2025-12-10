@@ -27644,8 +27644,8 @@ MonoBehaviour:
   model: {fileID: 5534576086532103342, guid: a9ab0f0e3e8ef904a8ab671c17a6d744, type: 3}
   nameSprite: {fileID: 0}
   legPower: 77
-  cooldown: 0.5
-  steerAngle: 80
+  cooldown: 0.45
+  steerAngle: 75
 --- !u!65 &858822909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41359,7 +41359,7 @@ MonoBehaviour:
   model: {fileID: 7466612877635018863, guid: bc5c677c5c1e31944ada4a5c0790bcf1, type: 3}
   nameSprite: {fileID: 0}
   legPower: 50
-  cooldown: 0.4
+  cooldown: 0.3
   steerAngle: 65
 --- !u!65 &1987862022
 BoxCollider:
