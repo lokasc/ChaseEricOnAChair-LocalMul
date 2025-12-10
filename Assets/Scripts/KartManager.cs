@@ -209,6 +209,12 @@ public class KartManager : MonoBehaviour
         return -1;
     }
 
+
+    public int GetCoins(Chair player)
+    {
+        return player.currentCoins;
+    }
+
     public int GetCurrentLaps(Chair player)
     {
         foreach (ChairData x in playerRanking)

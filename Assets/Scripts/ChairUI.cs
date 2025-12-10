@@ -13,6 +13,10 @@ public class ChairUI : MonoBehaviour
     public TextMeshProUGUI positionText;
     public TextMeshProUGUI countDownText;
     public TextMeshProUGUI lapText;
+
+
+    public TextMeshProUGUI coin1;
+    public TextMeshProUGUI coin2;
     public UnityEvent onCountDownComplete;
 
     private Vector3 countDownInitialScale;
@@ -32,7 +36,10 @@ public class ChairUI : MonoBehaviour
     void Update()
     {
         positionText.text = KartManager.Instance.GetCurrentPosition(myChair).ToString();
-        lapText.text = "Lap " + KartManager.Instance.GetCurrentLaps(myChair).ToString() + "/3";
+        //lapText.text = "Lap " + KartManager.Instance.GetCurrentLaps(myChair).ToString() + "/3";
+        //Debug.Log(KartManager.Instance.GetCoins(myChair).ToString());
+        coin1.text = KartManager.Instance.GetCoins(myChair).ToString() + "";
+        coin2.text = KartManager.Instance.GetCoins(myChair).ToString() + "";
     }
 
     public void StartCountDown()
