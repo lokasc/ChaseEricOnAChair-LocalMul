@@ -7,6 +7,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 // Need to rename this to KartManager.
 public class KartManager : MonoBehaviour
@@ -21,7 +22,7 @@ public class KartManager : MonoBehaviour
     
     public GameObject chairBasePrefab;
 
-    public TextMeshProUGUI finishText;
+    public Image zimmerImage;
     
     // [SerializeField] private Camera tempCamera;
     public class ChairData
@@ -92,6 +93,7 @@ public class KartManager : MonoBehaviour
 
             // Place players into the correct positions.
             newPlayer.transform.position = spawnLocation[index].position;
+            
             // newPlayer.transform.rotation = Quaternion.Euler(0, -180, 0);
             newPlayer.transform.rotation = Quaternion.Euler(spawnLocation[index].rotation.eulerAngles);
             
@@ -100,8 +102,6 @@ public class KartManager : MonoBehaviour
             
             //Put this new object in to the driving scene and not in game manager:
             SceneManager.MoveGameObjectToScene(newPlayer, gameObject.scene);
-            
-            
             
             index++;
         }
@@ -162,18 +162,9 @@ public class KartManager : MonoBehaviour
             // Convert offset into signed -0.5 → +0.5
             float signedOffset = offset <= 0.5f ? offset : offset - 1f;
             
-            
             // -0.5 → boss far ahead (playerbehind boss)
             // +0.5 → player far ahead (player ahead of boss).
             playerRank.t = signedOffset;
-
-
-            // // Abs to wrap.
-            // float diff = Mathf.Abs(t - bossOffset);
-            // playerRank.t = Mathf.Min(diff, 1f - diff);
-            // print("Player's offsetted: " + playerRank.t);
-            //print("playerRank t: " + t + " bossOffset: " + bossOffset);
-            // print("Player " + playerRank.chair.name + ": " + playerRank.trueT);
         }
 
         // // Sort based on rank and lap!
@@ -246,16 +237,17 @@ public class KartManager : MonoBehaviour
     public void OnPlayerFinish(Chair winningPlayer)
     {
         print(winningPlayer.name);
-        finishText.gameObject.SetActive(true);
-        finishText.alpha = 0;
-        finishText.DOFade(1, 0.2f).SetEase(Ease.OutQuad);
-
+        zimmerImage.gameObject.SetActive(true);
+        Color c = new Color(1,1,1);
+        c.a = 0;
+        zimmerImage.color = c;
+        zimmerImage.DOFade(1, 0.2f).SetEase(Ease.OutQuad);
         
         // Quick hack way of adding a stupid delay after the tween so i can do oncomplete a bit after
         Sequence animationSequence = DOTween.Sequence();
-        finishText.transform.localScale = new Vector3(1, 1, 1);
+        zimmerImage.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         animationSequence
-            .Append(finishText.transform.DOScale(new Vector3(3, 3, 3), 3f).SetEase(Ease.OutQuint))
+            .Append(zimmerImage.transform.DOScale(new Vector3(1, 1, 1), 3f).SetEase(Ease.OutQuint))
             .AppendInterval(2f)
             .AppendCallback(() =>
             {
@@ -265,6 +257,30 @@ public class KartManager : MonoBehaviour
             })
             ;
     }
+
+    // Respawns the player, spawns 0.4t behind boss 
+    public void RespawnPlayer(Chair stupidPlayer)
+    {
+        stupidPlayer.rb.linearVelocity = Vector3.zero;
+        // Calculate Eric's ratio on da spline. first.
+        SplineUtility.GetNearestPoint(mapSpline.Spline, boss.transform.position, out float3 _ ,out float ericT);
+        float newT = ericT - 0.4f;
+        
+        // if negative like: err max is -0.4 so this means eric is at 0 and we wanna spawn in 0.6.
+        if (Mathf.Sign(newT) == -1)
+        {
+            newT += 1;
+        }
+
+        print("Player new T ratio: " + newT);
+        //Spawn player on spline based on the new ratio (of da spline).
+        Vector3 newPosition = mapSpline.Spline.EvaluatePosition(newT);
+        print(newPosition);
+        
     
-    
+
+        stupidPlayer.rb.position = newPosition + stupidPlayer.transform.position;
+
+
+    }
 }
