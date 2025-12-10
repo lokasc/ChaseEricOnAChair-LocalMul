@@ -1170,6 +1170,7 @@ MonoBehaviour:
   - George
   - Whit
   currentIndex: -1
+  isSinglePlayer: 0
 --- !u!1 &211234019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 727023f194a39c94a94af1c49f700af9, type: 3}
@@ -34933,7 +34934,7 @@ MonoBehaviour:
   name: Mars
   model: {fileID: 6239677404146483368, guid: 60f9d09e327a1364e8fb53a481182813, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 30
+  legPower: 15
   cooldown: 0.1
   steerAngle: 15
 --- !u!65 &1507391205
