@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d575c74d7fd42a42a2d487f58c0b0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxDistanceToStop: 0.3
+  maxDistanceToStop: 0.4
   mapSpline: {fileID: 0}
   movement: {fileID: 917592420305044072}
   winnningPlayerCollided: 0
@@ -300,8 +300,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.5295234, y: 6.0321803, z: 3.4105039}
+  m_Center: {x: 0.16437341, y: 2.873896, z: -1.1617898}
 --- !u!1001 &4285879780192036781
 PrefabInstance:
   m_ObjectHideFlags: 0

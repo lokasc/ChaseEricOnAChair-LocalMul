@@ -27643,7 +27643,7 @@ MonoBehaviour:
   name: George
   model: {fileID: 5534576086532103342, guid: a9ab0f0e3e8ef904a8ab671c17a6d744, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 60
+  legPower: 77
   cooldown: 0.5
   steerAngle: 80
 --- !u!65 &858822909
@@ -28535,7 +28535,7 @@ MonoBehaviour:
   name: Amber
   model: {fileID: 4648970540146242549, guid: 231a0bf2715472a4cb07e82503bf47ac, type: 3}
   nameSprite: {fileID: 0}
-  legPower: 80
+  legPower: 70
   cooldown: 0.4
   steerAngle: 65
 --- !u!65 &1096558536
